@@ -2,6 +2,8 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
+import { ThemeContext } from '../../pages/_app';
+import React from 'react';
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
@@ -136,17 +138,23 @@ export const sudo = async (args?: string[]): Promise<string> => {
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-  __     __                _   _                _     _               _     _             _           
-  \\ \\   / /__ _ __   __ _| |_| |__   ___  _ __| |__ (_)_ __   __ _  | |__ | | __ _ _   _| | __ _ ___ 
-   \\ \\ / / _ \\ '_ \\ / _\` | __| '_ \\ / _ \\| '__| '_ \\| | '_ \\ / _\` | | '_ \\| |/ _\` | | | | |/ _\` / __|
-    \\ V /  __/ | | | (_| | |_| | | | (_) | |  | | | | | | | | (_| | | |_) | | (_| | |_| | | (_| \\__ \\
-     \\_/ \\___|_| |_|\\__,_|\\__|_| |_|\\___/|_|  |_| |_|_|_| |_|\\__, | |_.__/|_|\\__,_|\\__,_|_|\\__,_|___/
-                                                            |___/                                     
+ __      __    _    _   _   _    _   _           _    _           
+ \\ \\    / /   | |  | | | | | | |  | | | |         | |  | |          
+  \\ \\  / /__ _| | _| |_| |_| | _| |_| |__   __ _| |__| | ___  ___ 
+   \\ \\/ / _ \\ '_ \\| __| __| |/ / __| '_ \\ / _\` |  __  |/ _ \\/ __|
+    \\  /  __/ | | | |_| |_|   < (__| | | | (_| | |  | |  __/\\__ \\
+     \\/ \\___|_| |_|\\__|\\__|_|\\_\\___|_| |_|\\__,_|_|  |_|\\___||___/
 
-Varun Haridas, Junior AI Engineer
+<span class="banner-animate">Junior AI Engineer</span>
 
-Type 'help' to see the list of available commands.
-Type 'sumfetch' to display summary.
-Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
-`;
+Type 'help' to see the list of available commands.\nType 'sumfetch' to display summary.\nType 'theme' to switch color themes.\nType 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.`;
+};
+
+export const theme = async (args: string[], setTheme?: (theme: string) => void): Promise<string> => {
+  const availableThemes = ['dracula', 'nord', 'monokai'];
+  if (!args[0] || !availableThemes.includes(args[0].toLowerCase())) {
+    return `Available themes: ${availableThemes.join(', ')}\nUsage: theme [theme-name]`;
+  }
+  if (setTheme) setTheme(args[0].toLowerCase());
+  return `Theme switched to ${args[0]}.`;
 };

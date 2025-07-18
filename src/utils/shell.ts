@@ -6,6 +6,7 @@ export const shell = async (
   setHistory: (value: string) => void,
   clearHistory: () => void,
   setCommand: React.Dispatch<React.SetStateAction<string>>,
+  setTheme?: (theme: string) => void,
 ) => {
   const args = command.split(' ');
   args[0] = args[0].toLowerCase();
@@ -19,8 +20,13 @@ export const shell = async (
       `shell: command not found: ${args[0]}. Try 'help' to get started.`,
     );
   } else {
-    const output = await bin[args[0]](args.slice(1));
-    setHistory(output);
+    if (args[0] === 'theme') {
+      const output = await bin[args[0]](args.slice(1), setTheme);
+      setHistory(output);
+    } else {
+      const output = await bin[args[0]](args.slice(1));
+      setHistory(output);
+    }
   }
 
   setCommand('');
