@@ -90,7 +90,7 @@ export const Input = ({
         ref={inputRef}
         id="prompt"
         type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow w-full text-base md:text-lg px-2 py-2 rounded-md md:rounded flex-shrink min-w-0 ${
           commandExists(command) || command === ''
             ? 'text-dark-green'
             : 'text-dark-red'
@@ -101,6 +101,7 @@ export const Input = ({
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"
+        style={{ fontFamily: 'inherit', fontSize: '1.1rem', minHeight: '2.5rem' }}
       />
     </div>
   );

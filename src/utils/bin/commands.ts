@@ -134,13 +134,16 @@ export const sudo = async (args?: string[]): Promise<string> => {
 // Banner
 export const banner = (args?: string[]): string => {
   return `
- __      __    _    _   _   _    _   _           _    _           
- \\ \\    / /   | |  | | | | | | |  | | | |         | |  | |          
-  \\ \\  / /__ _| | _| |_| |_| | _| |_| |__   __ _| |__| | ___  ___ 
-   \\ \\/ / _ \\ '_ \\| __| __| |/ / __| '_ \\ / _\` |  __  |/ _ \\/ __|
-    \\  /  __/ | | | |_| |_|   < (__| | | | (_| | |  | |  __/\\__ \\
-     \\/ \\___|_| |_|\\__|\\__|_|\\_\\___|_| |_|\\__,_|_|  |_|\\___||___/
-
+<div class="overflow-x-auto w-full text-xs md:text-base" style="font-family: 'Hack', monospace;">
+<pre style="margin:0;">
+  __      __    _    _   _   _    _   _           _    _           
+  \\ \\    / /   | |  | | | | | | |  | | | |         | |  | |          
+   \\ \\  / /__ _| | _| |_| |_| | _| |_| |__   __ _| |__| | ___  ___ 
+    \\ \\/ / _ \\ '_ \\| __| __| |/ / __| '_ \\ / _\` |  __  |/ _ \\/ __|
+     \\  /  __/ | | | |_| |_|   < (__| | | | (_| | |  | |  __/\\__ \\
+      \\/ \\___|_| |_|\\__|\\__|_|\\_\\___|_| |_|\\__,_|_|  |_|\\___||___/
+</pre>
+</div>
 <span class="banner-animate">Junior AI Engineer</span>
 
 Type 'help' to see the list of available commands.\nType 'sumfetch' to display summary.\nType 'theme' to switch color themes.\nType 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.`;
