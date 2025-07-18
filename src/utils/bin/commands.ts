@@ -30,12 +30,7 @@ export const repo = async (args: string[]): Promise<string> => {
 
 // About
 export const about = async (args: string[]): Promise<string> => {
-  return `Hi, I am ${config.name}. 
-Welcome to my website!
-More about me:
-'sumfetch' - short summary.
-'resume' - my latest resume.
-'readme' - my github readme.`;
+  return `Hi, I am ${config.name}, Junior AI Engineer.\nWelcome to my website!\nMore about me:\n'sumfetch' - short summary.\n'resume' - my latest resume.\n'readme' - my github readme.`;
 };
 
 export const resume = async (args: string[]): Promise<string> => {
@@ -141,14 +136,14 @@ export const sudo = async (args?: string[]): Promise<string> => {
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-█████        ███                       ███████████                                   
-░░███        ░░░                       ░█░░░███░░░█                                   
- ░███        ████  █████ █████  ██████ ░   ░███  ░   ██████  ████████  █████████████  
- ░███       ░░███ ░░███ ░░███  ███░░███    ░███     ███░░███░░███░░███░░███░░███░░███ 
- ░███        ░███  ░███  ░███ ░███████     ░███    ░███████  ░███ ░░░  ░███ ░███ ░███ 
- ░███      █ ░███  ░░███ ███  ░███░░░      ░███    ░███░░░   ░███      ░███ ░███ ░███ 
- ███████████ █████  ░░█████   ░░██████     █████   ░░██████  █████     █████░███ █████
-░░░░░░░░░░░ ░░░░░    ░░░░░     ░░░░░░     ░░░░░     ░░░░░░  ░░░░░     ░░░░░ ░░░ ░░░░░ 
+  __     __                _   _                _     _               _     _             _           
+  \\ \\   / /__ _ __   __ _| |_| |__   ___  _ __| |__ (_)_ __   __ _  | |__ | | __ _ _   _| | __ _ ___ 
+   \\ \\ / / _ \\ '_ \\ / _\` | __| '_ \\ / _ \\| '__| '_ \\| | '_ \\ / _\` | | '_ \\| |/ _\` | | | | |/ _\` / __|
+    \\ V /  __/ | | | (_| | |_| | | | (_) | |  | | | | | | | | (_| | | |_) | | (_| | |_| | | (_| \\__ \\
+     \\_/ \\___|_| |_|\\__,_|\\__|_| |_|\\___/|_|  |_| |_|_|_| |_|\\__, | |_.__/|_|\\__,_|\\__,_|_|\\__,_|___/
+                                                            |___/                                     
+
+Varun Haridas, Junior AI Engineer
 
 Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
